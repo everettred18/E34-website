@@ -1,22 +1,29 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
-import { Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import MainNavRoutes from "./MainNav";
+import Home from "./Components/Views/Home/components/Home";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+const routes = MainNavRoutes;
 root.render(
   <React.StrictMode>
-    <Switch>
-      {routes.map((route, index) => (
-        <Route
-          key={index}
-          path={route.path}
-          exact={route.exact}
-          component={route.component}
-          render={route.render}
-        />
-      ))}
-    </Switch>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+        {/* {routes.map((route, index) => (
+          <Route
+            key={index}
+            path={route.path}
+            exact={route.exact}
+            component={route.component}
+            render={route.render}
+          />
+        ))} */}
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
